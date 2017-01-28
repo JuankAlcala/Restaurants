@@ -1,1 +1,29 @@
 /* You can add global styles to this file, and also import other style files */
+.card{
+	list-style: none;
+	width: 20%;	
+	height: 200px;
+	border: solid 1px #ccc;
+	box-shadow: 3px 3px 10px #666;
+	display: inline-block;
+	margin: 20px;
+	padding: 20px;
+	position: relative;;
+}
+
+.card p{
+	color: #333;
+}
+
+.card a{
+	position: absolute;
+	right: 20px;
+	bottom: 10px;
+}
+
+.card span{
+	color:#999;
+	font-style: italic;
+	display: block;
+	text-align: right;
+}

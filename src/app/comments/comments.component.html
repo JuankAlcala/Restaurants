@@ -1,0 +1,27 @@
+<h2>Comments for {{ saucer.name }}</h2>
+<a routerLink="/restaurants/{{ saucer.restaurantId }}/saucers">Back to {{ saucer.name }}</a>
+<ul>
+	<li class="comment" *ngFor="let comment of comments">
+		<h4>{{ comment.createdBy }}</h4>
+		<p>{{ comment.comment }}</p>
+		<span>{{ comment.date }}</span>
+	</li>
+</ul>
+<div class="newComment">
+	<h3>New Comment</h3>
+	<div class="alert alert-success alert-dismissible" role="alert" *ngIf="commentSuccess">
+	<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+		Tu comentario se agregó correctamente
+	</div>
+	<div class="alert alert-danger alert-dismissible" role="alert" *ngIf="commentError">
+	<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+		Ocurrió un error al guardar el comentario
+	</div>
+	<form (ngSubmit)="sendComment($event)">
+	<label for="author">Name:</label>
+	<input name="author" type="text" [(ngModel)]="data.createdBy" class="form-control" />
+	<label for="comment">Comment:</label>
+	<textarea name="comment" [(ngModel)]="data.comment" class="form-control"></textarea>
+	<button class="btn btn-primary"><span class="glyphicon glyphicon-floppy-disk"></span>&nbsp;Send</button>
+	</form>
+</div>
